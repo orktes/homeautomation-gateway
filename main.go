@@ -38,8 +38,11 @@ func oauthAuthorize(c *gin.Context) {
 	redirect := c.Query("redirect_uri")
 	parsedRedirect, _ := url.Parse(redirect)
 
+	query := parsedRedirect.Query()
+	query.Add("state", c.Query("state"))
+
 	b := &bytes.Buffer{}
-	signupTemplate.Execute(b, map[string]interface{}{"redirect_uri": redirect, "params": parsedRedirect.Query()})
+	signupTemplate.Execute(b, map[string]interface{}{"redirect_uri": redirect, "params": query})
 
 	c.Data(http.StatusOK, "text/html; charset=utf-8", b.Bytes())
 }
