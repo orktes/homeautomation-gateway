@@ -1,0 +1,9 @@
+{
+	"ImportPath": "github.com/orktes/homeautomation-gateway",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v78",
+	"Packages": [
+		"./..."
+	],
+	"Deps": []
+}
