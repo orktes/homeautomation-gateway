@@ -1,0 +1,1 @@
+web: homeautomation-gateway
